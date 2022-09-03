@@ -9,7 +9,7 @@ const loadCategory = () => {
 const showCategory = (newsCategory) => {
     const categoriesWrapper = document.getElementById('content-container');
 
-    console.log(newsCategory);
+    // console.log(newsCategory);
     newsCategory.forEach(category => {
         const categoryTab = document.createElement('div');
         categoryTab.classList.add('col', 'text-center');
@@ -47,24 +47,54 @@ const showNewsContent = (contents) => {
 
     contents.forEach(content => {
         console.log(content);
+
         const card = document.createElement('div');
         card.classList.add('card', 'mb-3');
         card.innerHTML = `
-           <div class="row g-0">
-               <div class="col-md-4">
-                   <img src="${content.thumbnail_url}" class="w-100 img-fluid rounded-start" alt="image">
-               </div>
-               <div class="col-md-8">
-                   <div class="card-body">
-                       <h5 class="card-title">${content.title}</h5>
-                       <p class="card-text">${content.details.slice(0, 300)}...</p>
-                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                   </div>
-               </div>
-           </div>
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="${content.thumbnail_url}" class="w-100 img-fluid rounded-start" alt="image">
+            </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">${content.title}</h5>
+                    <p class="card-text">${content.details.slice(0, 300)}...</p>
+                    
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex align-items-center">
+                                <div class="image flex-shrink-0 me-2">
+                                    <img class="avatar" src="${content.author.img}" alt="image">
+                                </div>
+                                <div class="details">
+                                    <p class="m-0">${content.author.name ? content.author.name : 'Name not found'}</p>
+                                    <p class="m-0">${content.author.published_date}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 text-center">
+                            <p>Ratings : ${content.rating.number}</p>
+                        </div>
+                        <div class="col-4 text-end">
+                            <button class="btn btn-success" onclick="showDetails('${content._id}')">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
        `
         newsContainer.appendChild(card);
     })
+}
+
+
+const showDetails = (news_id) => {
+    const url3 = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    // fetch(url3)
+    // .then(res => res.json())
+    // .then(data => console.log(data))
+    console.log(url3);
 }
 
 loadNewaContent();
