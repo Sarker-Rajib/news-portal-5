@@ -14,7 +14,7 @@ const showCategory = (newsCategory) => {
        const categoryTab = document.createElement('div');
        categoryTab.classList.add('col', 'text-center');
        categoryTab.innerHTML = `
-           <p class="border rounded mb-0 text-nowrap" onclick="loadNewaContent(${category.category_id})">${category.category_name}</p>
+           <p class="border rounded px-2 mb-0 text-nowrap category-nav" onclick="loadNewaContent(${category.category_id})">${category.category_name}</p>
        `
        categoriesWrapper.appendChild(categoryTab);
    });
