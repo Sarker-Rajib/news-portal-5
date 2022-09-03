@@ -38,10 +38,10 @@ const showNewsContent = (contents) => {
        card.classList.add('card','mb-3');
        card.innerHTML = `
            <div class="row g-0">
-               <div class="col-md-4 mb-2">
+               <div class="col-md-5 mb-2">
                    <img src="${content.thumbnail_url}" class="img-fluid rounded-start" alt="image">
                </div>
-               <div class="col-md-8">
+               <div class="col-md-7">
                    <div class="card-body">
                        <h5 class="card-title">${content.title}</h5>
                        <p class="card-text">${content.details.slice(0, 300)}...</p>
