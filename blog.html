@@ -25,14 +25,14 @@
                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-               <ul class="navbar-nav ms-auto mb-lg-0 align-items-center">
+               <ul class="navbar-nav ms-lg-auto align-items-lg-center">
                   <li class="nav-item">
                      <a class="nav-link me-4" href="index.html">News</a>
                   </li>
                   <li class="nav-item me-3">
                      <a class="nav-link active">Blog</a>
                   </li>
-                  <li>
+                  <li class="mt-2 mt-lg-0">
                      <img width="35" src="images/user.png" alt="user">
                   </li>
                </ul>
@@ -49,92 +49,100 @@
       <section class="qna">
          <div class="container">
             <div class="row gy-3">
-               <div class="qNa-card col-12 p-3 shadow">
-                  <h2>Q1. What is the Differences between var, let, and const?</h2>
-                  <h4>Answer :</h4>
-                  <table class="table">
-                     <tbody>
-                        <tr>
-                           <td>var</td>
-                           <td>let</td>
-                           <td>const</td>
-                        </tr>
-   
-                        <tr>
-                           <td>
-                              The scope of a var variable is functional scope.
-                           </td>
-   
-                           <td>
-                              The scope of a let variable is block scope
-                           </td>
-   
-                           <td>
-                              The scope of a const variable is block scope.
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>
-                              It can be updated and re-declared into the scope.
-                           </td>
-   
-                           <td>
-                              It can be updated but cannot be re-declared into the scope.
-                           </td>
-   
-                           <td>
-                              It cannot be updated or re-declared into the scope.
-                           </td>
-                        </tr>
-   
-                        <tr>
-                           <td>It can be accessed without initialization as its default value is “undefined”.</td>
-                           <td>It cannot be accessed without initialization otherwise it will give ‘referenceError’.</td>
-                           <td>It cannot be accessed without initialization, as it cannot be declared without
-                              initialization</td>
-                        </tr>
-   
-                     </tbody>
-                  </table>
+               <div>
+                  <div class="qNa-card col-12 p-2 shadow">
+                     <h2>Q1. What is the Differences between var, let, and const?</h2>
+                     <h4>Answer :</h4>
+                     <table class="table">
+                        <tbody>
+                           <tr>
+                              <td>var</td>
+                              <td>let</td>
+                              <td>const</td>
+                           </tr>
+      
+                           <tr>
+                              <td>
+                                 The scope of a var variable is functional scope.
+                              </td>
+      
+                              <td>
+                                 The scope of a let variable is block scope
+                              </td>
+      
+                              <td>
+                                 The scope of a const variable is block scope.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 It can be updated and re-declared into the scope.
+                              </td>
+      
+                              <td>
+                                 It can be updated but cannot be re-declared into the scope.
+                              </td>
+      
+                              <td>
+                                 It cannot be updated or re-declared into the scope.
+                              </td>
+                           </tr>
+      
+                           <tr>
+                              <td>It can be accessed without initialization as its default value is “undefined”.</td>
+                              <td>It cannot be accessed without initialization otherwise it will give ‘referenceError’.</td>
+                              <td>It cannot be accessed without initialization, as it cannot be declared without
+                                 initialization</td>
+                           </tr>
+      
+                        </tbody>
+                     </table>
+                  </div>
                </div>
    
-               <div class="qNa-card col-12 p-3 shadow">
-                  <h2>Q2. What's the differences between arrow function and regular function?</h2>
-                  <p>
-                     Regular functions created using function declarations or expressions are constructible and callable.
-                     Since regular functions are constructible, they can be called using the new keyword. However, the
-                     arrow functions are only callable and not constructible, i.e arrow functions can never be used as
-                     constructor functions.
-                  </p>
+               <div>
+                  <div class="qNa-card col-12 p-3 shadow">
+                     <h2>Q2. What's the differences between arrow function and regular function?</h2>
+                     <p>
+                        Regular functions created using function declarations or expressions are constructible and callable.
+                        Since regular functions are constructible, they can be called using the new keyword. However, the
+                        arrow functions are only callable and not constructible, i.e arrow functions can never be used as
+                        constructor functions.
+                     </p>
+                  </div>
                </div>
    
-               <div class="qNa-card col-12 p-3 shadow">
-                  <h2>Q3. What are the difference between map(), forEach(), filter() and find() ?</h2>
-                  <h4>Answer:</h4>
-                  <p>
-                     => map() : map() executes the same code on every element in an array and returns a new array with the
-                     updated elements.
-                     <br><br>
-                     => forEach() : .forEach(), is used to execute the same code on every element in an array but does not
-                     change the array and it returns undefined.
-                     <br><br>
-                     => filter(): .filter() checks every element in an array to see if it meets a certain criteria and
-                     returns a new array with the elements that return truthy for the criteria.
-                     <br><br>
-                     => find() : .find() checks every element in an array to see if it meets a certain criteria and returns
-                     first matched element.
-                  </p>
+               <div>
+                  <div class="qNa-card col-12 p-3 shadow">
+                     <h2>Q3. What are the difference between map(), forEach(), filter() and find() ?</h2>
+                     <h4>Answer:</h4>
+                     <p>
+                        => map() : map() executes the same code on every element in an array and returns a new array with the
+                        updated elements.
+                        <br><br>
+                        => forEach() : .forEach(), is used to execute the same code on every element in an array but does not
+                        change the array and it returns undefined.
+                        <br><br>
+                        => filter(): .filter() checks every element in an array to see if it meets a certain criteria and
+                        returns a new array with the elements that return truthy for the criteria.
+                        <br><br>
+                        => find() : .find() checks every element in an array to see if it meets a certain criteria and returns
+                        first matched element.
+                     </p>
+                  </div>
                </div>
    
-               <div class="qNa-card col-12 p-3 shadow">
-                  <h2>Q4. Why you willuse template string ?</h2>
-                  <h4>Answer:</h4>
-                  <p>Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
-                     insert/interpolate variables and expressions into strings without needing to concatenate like in older
-                     versions of JavaScript.
-                     Template literals (template strings) allows to use strings or embedded expressions in the form of a
-                     string.
-                  </p>
+               <div>
+                  <div class="qNa-card col-12 p-3 shadow">
+                     <h2>Q4. Why you willuse template string ?</h2>
+                     <h4>Answer:</h4>
+                     <p>Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
+                        insert/interpolate variables and expressions into strings without needing to concatenate like in older
+                        versions of JavaScript.
+                        Template literals (template strings) allows to use strings or embedded expressions in the form of a
+                        string.
+                     </p>
+                  </div>
                </div>
             </div>
          </div>
