@@ -12,11 +12,12 @@ const showCategory = (newsCategory) => {
     // console.log(newsCategory);
     newsCategory.forEach(category => {
         const categoryTab = document.createElement('div');
-        categoryTab.classList.add('col', 'text-center');
+        categoryTab.classList.add('col', 'text-center', 'category');
         categoryTab.innerHTML = `
-           <p class="border rounded px-2 mb-0 text-nowrap category-nav" onclick="loadNewaContent(${category.category_id})">${category.category_name}</p>
+           <p class="rounded px-2 mb-0 text-nowrap category-nav" onclick="loadNewaContent(${category.category_id})">${category.category_name}</p>
        `
         categoriesWrapper.appendChild(categoryTab);
+
     });
 }
 
@@ -37,7 +38,7 @@ const showNewsContent = (contents) => {
     const newsCountContainer = document.getElementById('count-message-container');
     if (newsCount === 0) {
         newsCountContainer.innerHTML = `
-       <h4>${newsCount} / No News Found</h4>
+       <h4>No News Found</h4>
        `
     }
     else {
@@ -49,24 +50,26 @@ const showNewsContent = (contents) => {
     contents.sort((a, b) => b.total_view > a.total_view ? 1 : b.total_view < a.total_view ? -1 : 0);
 
     contents.forEach(content => {
-        console.log(content);
+        // console.log(content);
 
         const card = document.createElement('div');
         card.classList.add('col', 'mb-3');
         card.innerHTML = `
 
-            <div class="row g-0 border rounded p-2">
+            <div class="row g-0 border rounded shadow p-2">
                 <div class="col-md-4 pe-0 pe-md-2">
                     <img src="${content.thumbnail_url}" class="w-100 img-fluid rounded-start" alt="image">
                 </div>
 
                 <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title pb-2">${content.title}</h5>
-                        <p class="card-text">${content.details.slice(0, 100)}...</p>
+                    <div class="card-body d-flex flex-column justify-content-between h-100">
+                        <div>
+                            <h5 class="card-title pb-3">${content.title}</h5>
+                            <p class="card-text">${content.details.slice(0, 150)}...</p>
+                        </div>
                         
                         <div class="row">
-                            <div class="col-12 pb-2 pb-lg-0">
+                            <div class="col-5 pb-2 pb-lg-0 pe-0">
                                 <div class="d-flex align-items-center">
                                     <div class="image flex-shrink-0 me-2">
                                         <img class="avatar" src="${content.author.img}" alt="image">
@@ -77,12 +80,12 @@ const showNewsContent = (contents) => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 text-start">
-                                <p class="text-success m-0">Total View : ${content.total_view ? content.total_view : 'No data Found'}</p>
+                            <div class="col-4 text-start">
+                                <p class="text-success m-0">Views: ${content.total_view ? content.total_view : 'No data Found'}</p>
                                 <p class="text-success m-0">Ratings : ${content.rating.number}</p>
                             </div>
-                            <div class="col-6 text-end">
-                                <button class="btn btn-success" onclick="loadNewsDetails('${content._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>
+                            <div class="col-3 text-start pt-2">
+                                <button class="btn btn-success" onclick="loadNewsDetails('${content._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">More</button>
                             </div>
                         </div>
                     </div>

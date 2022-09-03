@@ -2,6 +2,20 @@
    margin: 0;
    box-sizing: border-box;
 }
+body{
+   background: #F6F6F6;
+}
+
+.navbar-nav .nav-link{
+   font-size: 20px;
+}
+
+.navbar-nav .nav-link.active{
+   color: rgb(52, 128, 68);
+   border-bottom: 2px solid rgb(52, 128, 68);
+   font-weight: bold;
+}
+
 .category-nav{
    cursor: pointer;
 }
@@ -9,4 +23,15 @@
 .avatar{
    width: 45px;
    border-radius: 50%;
+}
+
+@media(max-width:768px){
+   .categories p{
+      border: 1px solid rgb(49, 156, 94);
+   }
+}
+
+.qNa-card{
+   border-radius: 15px;
+   border: 1px solid #339644;
 }
