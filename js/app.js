@@ -45,8 +45,10 @@ const showNewsContent = (contents) => {
        `
     }
 
+    contents.sort((a, b) => b.total_view > a.total_view ? 1 : b.total_view < a.total_view ? -1 : 0);
+
     contents.forEach(content => {
-        // console.log(content);
+        console.log(content);
 
         const card = document.createElement('div');
         card.classList.add('col', 'mb-3');
@@ -70,12 +72,13 @@ const showNewsContent = (contents) => {
                                     </div>
                                     <div class="details">
                                         <p class="m-0">${content.author.name ? content.author.name : 'Name not found'}</p>
-                                        <p class="m-0">${content.author.published_date}</p>
+                                        <p class="m-0">${content.author.published_date ? content.author.published_date.slice(0, 10) : 'Date not found'}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 text-center">
-                                <p class="text-success">Ratings : ${content.rating.number}</p>
+                            <div class="col-6 text-start">
+                                <p class="text-success m-0">Total View : ${content.total_view ? content.total_view : 'No data Found'}</p>
+                                <p class="text-success m-0">Ratings : ${content.rating.number}</p>
                             </div>
                             <div class="col-6 text-end">
                                 <button class="btn btn-success" onclick="loadNewsDetails('${content._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>
