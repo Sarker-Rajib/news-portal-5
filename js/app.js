@@ -94,7 +94,7 @@ const showNewsContent = (contents) => {
         `
         newsContainer.appendChild(card);
     })
-
+    
     toggleSpinner(false);
 }
 
@@ -132,5 +132,5 @@ const displayNewsDetails = (newsDetails) => {
     `
 }
 
-loadNewaContent();
+toggleSpinner();
 loadCategory();
