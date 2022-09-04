@@ -1,15 +1,19 @@
 // category nav 
 const loadCategory = async () => {
-    const url = `https://openapi.programming-hero.com/api/news/categories`
-    const res = await fetch(url);
-    const data = await res.json();
-    showCategory(data.data.news_category);
+    const url = `https://openapi.programming-hero.com/api/news/categories`;
+    try {        
+        const res = await fetch(url);
+        const data = await res.json();
+        showCategory(data.data.news_category);
+    } catch (error) {
+        console.log('find error');
+    }
 }
 
 const showCategory = (newsCategory) => {
     const categoriesWrapper = document.getElementById('content-container');
 
-    // console.log(newsCategory);
+    newsCategory.sort((a, b) => a.category_name.localeCompare(b.category_name));
     newsCategory.forEach(category => {
         const categoryTab = document.createElement('div');
         categoryTab.classList.add('col', 'text-center', 'category');
@@ -25,9 +29,14 @@ const showCategory = (newsCategory) => {
 const loadNewaContent = async (id = 8) => {
     toggleSpinner(true);
     const url2 = `https://openapi.programming-hero.com/api/news/category/0${id}`;
-    const res = await fetch(url2);
-    const data = await res.json();
-    showNewsContent(data.data);
+
+    try {        
+        const res = await fetch(url2);
+        const data = await res.json();
+        showNewsContent(data.data);
+    } catch (error) {
+        console.log('check error');
+    }
 };
 
 const showNewsContent = (contents) => {
@@ -50,8 +59,7 @@ const showNewsContent = (contents) => {
     contents.sort((a, b) => b.total_view > a.total_view ? 1 : b.total_view < a.total_view ? -1 : 0);
 
     contents.forEach(content => {
-        // console.log(content);
-
+        
         const card = document.createElement('div');
         card.classList.add('col', 'mb-3');
         card.innerHTML = `
@@ -111,10 +119,17 @@ const toggleSpinner = isLoading => {
 
 const loadNewsDetails = async (news_id) => {
     const url3 = `https://openapi.programming-hero.com/api/news/${news_id}`;
-    const res = await fetch(url3);
-    const data = await res.json();
-    displayNewsDetails(data.data[0])
+
+    try {
+        const res = await fetch(url3);
+        const data = await res.json();
+        displayNewsDetails(data.data[0])
+    } catch (error) {
+        console.log('check error');
+    }
 }
+toggleSpinner();
+
 
 const displayNewsDetails = (newsDetails) => {
     const newsDetailContainer = document.getElementById('display-container');
@@ -132,5 +147,4 @@ const displayNewsDetails = (newsDetails) => {
     `
 }
 
-toggleSpinner();
 loadCategory();
